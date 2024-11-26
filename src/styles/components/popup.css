@@ -1,0 +1,753 @@
+/* Modal Background */
+.feedback-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000AD;
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    padding: 20px;
+    overflow: auto;
+  min-height: 100vh; /* Minimum height of 100% of the viewport height */
+  width: 100%;      /* Full width */
+  padding: 10px;
+  box-sizing: border-box;  /* Include padding in the width/height calculation */
+  }
+  .pddelivery-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000AD;
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    padding: 20px;
+    overflow: auto;
+  }
+
+  .pddelivery-box{
+    
+
+    /* position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%); */
+}
+
+  /* Modal Content */
+  .feedback-modal-content {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px 25px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px ;
+    
+  }
+  
+  /* Close Button */
+  .feedback-close-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    color: #fff;
+    background: var(--primary-color);
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .feedback-close-btn i{
+    font-size: 20px;
+  }
+  .feedback-close-btn:hover {
+    background-color: var(--secondary-color);
+  }
+  .feedback-txt{
+    font-size: 12px;
+    color: #484848;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  /* Feedback Heading */
+  .feedback-modal h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+  }
+  
+  /* Emoji Row */
+  .feedback-emoji-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px 0 20px 0;
+    max-width: 300px;
+  }
+  
+  .feedback-emoji-row img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+  
+  /* Comment Box */
+  .feedback-comment-box {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .feedback-comment-box textarea {
+    width: 100%;
+    max-width: 340px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1.5px solid #E7E7E7;
+    background: #FAFAFA;
+    font-size: 12px;
+  }
+  
+  .feedback-comment-box textarea::placeholder {
+    color: #484848;
+    font-size: 12px;
+    padding-left: 20px;
+  }
+  
+  /* Button Section */
+  .feedback-modal-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .feedback-modal-footer button {
+    border: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
+  .feedback-modal-footer .feedback-cancel-btn {
+    background-color: #f8d7da;
+    color: #d9534f;
+  }
+  
+  .feedback-feedback-modal-footer .feedback-cancel-btn:hover {
+    background-color: #f5c6cb;
+  }
+  
+  .feedback-modal-footer .feedback-submit-btn {
+    background-color: #c2185b;
+    color: #fff;
+  }
+  
+  .feedback-modal-footer .feedback-submit-btn:hover {
+    background-color: #ad1457;
+  }
+  
+
+  /* note popup  */
+
+  .note-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000AD;
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    visibility: hidden;
+    z-index: 5;
+    padding: 30px 15px;
+  }
+  
+  .note-modal.active {
+    visibility: visible;
+  }
+  
+  .note-modal-content {
+    background-color: #fff;
+    width: 100%;
+    border-radius: 15px;
+    padding: 20px;
+    position: relative;
+    max-width: 550px;
+    z-index: 5;
+  }
+  
+  .note-modal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: left;
+    color:  #B51144;
+    
+    
+  }
+  
+  
+  .note-modal-header .note-close-btn {
+    font-size: 24px;
+    color: #ff5a5a;
+    cursor: pointer;
+  }
+  
+  .note-modal-header .note-close-btn:hover {
+    color: #d9534f;
+  }
+  
+  .note-modal-body {
+    padding: 10px 0;
+    display: flex;
+    align-items: start;
+    
+  }
+  .note-modal-body p{
+    padding: 10px 0;
+    color: #545252;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .note-modal-body .note-message {
+    display: flex;
+    align-items: start;
+    font-size: 18px;
+    color: #444;
+  }
+  .note-modal-body .note-message p{
+    padding-left: 20px;
+  }
+  .note-modal-body .note-message .icon img{
+    width: 35px;
+    height: 35px;
+    padding-top: 15px ;
+   }
+   
+  @media screen and (max-width:567px){
+    .note-modal-body .note-message p{
+        padding-left: 10px;
+      }
+      .note-modal-body .note-message .icon img{
+        width: 45px;
+        height: 45px;
+        padding-top: 10px ;
+       }
+  }
+  
+  .note-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+    margin-top: 10px;
+  }
+  
+  .note-modal-footer button {
+    color: #0E387F;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
+  .note-modal-footer button:hover {
+    color: #0E387F;
+  }
+  
+  .note-modal-footer button.note-decline {
+    color: var(--primary-color);
+  }
+  .allow-btn{
+    color: green;
+  }
+  
+  .note-modal-footer button.note-decline:hover {
+    color: var(--primary-color);
+  }
+  .otp-modal-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .otp-numver
+  {
+    font-size: 35px;
+    font-weight: 700;
+    color: #000000;
+    letter-spacing: 7px;
+    text-align: center;
+  }
+
+/* success popup */
+  .success-popup-content {
+    background-color: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .success-popup-header {
+    background-color: #3FC59D;
+    padding: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .success-checkmark {
+    font-size: 50px;
+    color: white;
+  }
+
+  .success-popup-content h2 {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 5px;
+  }
+
+  .success-popup-content p {
+    font-size: 14px;
+    color: #000000;
+    padding: 5px 20px;
+  }
+
+  .success-close-btn {
+    background-color: #f35b65;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 120px;
+    display: flex;
+    gap:4px;
+    align-items: center;
+
+  }
+  .success-close-btn p{
+    color: var(--white);
+    padding: 0px 5px;
+  }
+  .success-close-btn:hover {
+    background-color: #e04a55;
+  }
+  .service-model{
+z-index: 5;
+overflow-y: auto;
+scrollbar-width: 0px;
+
+  }
+  .service-model::-webkit-scrollbar{
+    display: none;
+  }
+  .service-row .user-category-item p.active{
+    color: var(--primary-color);
+  }
+  .service-modal-content{
+    max-width: 690px;
+    min-width: 300px;
+    align-items: normal;
+    
+  }
+  .service-row{
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    scrollbar-width: 0px;
+  }
+  .service-row::-webkit-scrollbar{
+    display: none;
+  }
+  .service-row .user-category-item  {
+    text-align: center;
+    max-width: 90px;
+    min-width: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.service-item{
+  cursor: pointer;
+}
+.category-row .user-category-item {
+  text-align: center;
+  max-width: 90px;
+  min-width: 90px;
+}
+.service-row .user-category-item  .user-category-svg.active{
+  background: #f2dae2;
+
+}
+.category-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 columns by default */
+  gap: 20px; /* Adjust the space between the grid items */
+}
+
+@media (max-width: 568px) {
+  .category-row {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on mobile */
+  }
+  .category-row .user-category-item {
+    text-align: center;
+    max-width: 70px;
+    min-width: 70px;
+}
+}
+.service-popup-close{
+  top: 5px;
+  right: 5px;
+}
+
+/* slot note */
+.slot-model-popup{
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000AD;
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    padding: 20px;
+}
+
+.slot-note-container {
+  max-width: 800px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 20px auto;
+}
+
+.slot-note-title {
+  color: #7b47d6;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Form Groups */
+.slot-note-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.slot-note-group {
+  width: 48%;
+  margin-bottom: 15px;
+}
+
+.slot-note-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.slot-note-select {
+  width: 100%;
+  padding: 10px;
+  border: 1.5px solid #EDEDED;
+  box-shadow: 0px 0px 1.82px 1.07px #D7D7D740;
+  border-radius: 5px;
+  background-color: #ffff;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  height: 50px;
+}
+/* Placeholder option color */
+.slot-note-select .placeholder-option {
+  color: #ACACAC !important;
+}
+
+/* In case no class, you can target the first disabled option like this */
+.slot-note-select option:disabled {
+  color: #ACACAC;
+  font-size: 12px;
+}
+/* Hint Text */
+.slot-note-hint {
+  color: #c71c2c;
+  font-size: 12px;
+  text-align: left;
+  display: block;
+  margin-top: 5px;
+}
+
+/* Button */
+.slot-note-button {
+  width: 150px;
+  padding: 12px;
+  background-color: #a10448;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.slot-note-button:hover {
+  background-color: #7e0336;
+}
+
+/* Responsive Styles */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .slot-note-form {
+    flex-direction: column;
+  }
+
+  .slot-note-group {
+    width: 100%;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .slot-note-title {
+    font-size: 20px;
+  }
+
+  .slot-note-button {
+    width: 100%;
+  }
+}
+
+
+/* category popup */
+/* category popup */
+.service-model {
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  background: #000000ad;
+  box-sizing: border-box;
+  height: 100%;
+  left: 0;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+  display: flex; /* Flexbox to center content */
+  justify-content: center;
+  align-items: center;
+}
+
+.service-modal-content {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 750px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+ position: relative;
+  /* Ensure modal is scrollable and stays within viewport */
+  max-height: 80vh;
+  overflow-y: auto; /* Allows the content to scroll when it exceeds max-height */
+}
+
+
+/* OTP */
+
+
+/* Overlay that covers the entire screen */
+.emp-otp-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000AD;
+    backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 1000; /* Ensure the popup is on top of other elements */
+  
+}
+
+/* Popup content */
+.emp-otp-popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 340px;
+  min-width: 300px;
+  text-align: center;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-direction: column;
+}
+
+.emp-otp-popup-content h2 {
+  margin-bottom: 20px;
+}
+
+.emp-otp-popup-content input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+
+.emp-otp-popup-content .emp-otp-close-popup {
+  background-color: red;
+}
+
+/* Show popup when active */
+.emp-otp-popup-overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* Background Overlay */
+.user-notifi-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000AD;
+    z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+}
+
+/* Popup */
+.user-notifi-popup {
+  position: fixed;
+  top: 90px;
+  right: 30px;
+  width: 350px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-notifi-popup h2 {
+  font-size: 20px;
+  color: #ff005c;
+  margin-bottom: 20px;
+}
+
+.user-notifi-notifications {
+  list-style: none;
+  padding: 0;
+}
+
+.user-notifi-notifications li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-notifi-notifications li img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.user-notifi-notifications li p {
+  font-size: 12px;
+  color: #333;
+}
+
+.user-notifi-notifications li .user-notifi-highlight {
+  color: #ff005c;
+  font-weight: bold;
+}
+
+/* Button to toggle popup for demo */
+.user-notifi-btn {
+  padding: 10px 20px;
+  background-color: #ff005c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 20px;
+  border-radius: 5px;
+}
+
+.user-notifi-btn:hover {
+  background-color: #e0004f;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .user-notifi-popup {
+    width: 100%;
+    right: 0;
+    left: 0;
+  }
+}

@@ -1,0 +1,112 @@
+.footer-bg{
+    background-color: #FFFBF1;
+
+}
+.footer-box{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns by default */
+    padding: 20px;
+    padding-top: 0px;
+
+}
+
+.footer-item{
+    color: #404040;
+    padding: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .footer-box {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for screens less than 1200px */
+    }
+}
+
+@media (max-width: 900px) {
+    .footer-box{
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for screens less than 900px */
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-box {
+        grid-template-columns: 1fr; /* 1 column for screens less than 600px */
+        padding: 20px 10px;
+
+    }
+    .footer-box {
+        gap: 0px;
+    }
+}
+.footer-logo{
+    max-width: 200px;
+    max-height: 63px;
+
+}
+.footer-list{
+    list-style: none;
+}
+.footer-social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social-icons a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    outline: 2px solid #666;
+    border: 4px solid #fff;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+
+    
+}
+.footer-link a{
+    transition: all 0.5s ease;
+}
+.footer-link a:hover{
+    margin-left: 5px;
+    color: var(--primary-color);
+}
+.footer-social-icons a:hover {
+    border: 0px solid #fff;
+    outline: 2px solid var(--primary-color);
+}
+
+.footer-social-icons a:nth-child(1){
+    background-color:  #0066ff ;
+}
+.footer-social-icons a:nth-child(2){
+    background-color:  #1cb7eb ;
+}
+.footer-social-icons a:nth-child(3){
+ background-color:   #0c65c4 ;
+}
+.footer-social-icons a:nth-child(4){
+    color:   #e85654;
+}
+.footer-heading{
+    font-family: Poppins;
+font-size: 20px;
+font-weight: 700;
+line-height: 33.45px;
+color: var(--black);
+padding-bottom: 20px;
+}
+.footer-image-box{
+    padding-bottom: 0px;
+    padding-top: 50px;
+}
+.footer-list li:not(:first-child) {
+    padding-bottom: 15px;
+    font-size: 14px;
+    font-weight: 700;
+}

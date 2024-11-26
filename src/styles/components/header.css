@@ -1,0 +1,220 @@
+.header-box{
+    width: 100%;
+    background-color: transparent;
+    position: relative;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 30px;
+    
+}
+
+.header-bg{
+    background-color: var(--white);
+    border-radius: 20px;
+    height: 80px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+}
+@media (max-width: 768px) {
+    .header-box{
+        padding: 0px 0px;
+    }
+    .header-bg{
+        border-radius: 0px;
+    }
+  }
+
+  /* LOGO */
+  .logo-box {
+    width: 160px;
+    height: 50px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo-box img{
+    object-fit: contain;
+  }
+  .navibar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .menu-link{
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--black);
+  }
+  .menu-link-box{
+    margin-right: 40px;
+  }
+  .login-menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.92px solid #D7D7D7;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+  .login-menu span:nth-child(1){
+    margin-right: 6px;
+  }
+  .login-menu span:nth-child(3){
+    margin-top: 3px;
+  }
+  .location-menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .location-menu span:nth-child(1){
+    margin-right: 6px;
+    color: var(--icon-red);
+  }
+  .location-menu .location-text{
+    color: #484848;
+    font-size: 12px;
+  }
+  .small-dot{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: green;
+    position: absolute;
+    right: 2px;
+    top:-9px;
+  }
+  .notification-menu{
+    position: relative;
+  }
+  .notification-menu span:nth-child(1){
+    font-size: 30px;
+  }
+  .cart-menu, .search-menu{
+    font-size: 30px;
+  }
+  .category-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  /* media query */
+  @media (max-width: 1275px) {
+    .menu-link-box {
+      margin-right: 20px;
+  }
+  }
+  @media (min-width: 1000px) {
+    .menu-link-box {
+      margin-right: 40px;
+  }
+  @media (max-width: 1176px) {
+    .menu-link-box {
+      margin-right: 10px;
+  }
+}
+  .mobile-menu-box{
+    display: none;
+  }
+  }
+  @media (max-width: 999px) {
+    .desktop-menu-box{
+      display: none;
+  }
+  .mobile-menu-box{
+    display: flex;
+    position: relative;
+  }
+  }
+  .menu-link-box:nth-last-child(1){
+    margin-right: 0px;
+  }
+  .mobile-panel{
+    position:absolute;
+    width: 280px;
+    padding: 15px ;
+    border-radius: 15px;
+    z-index: 2;
+    top:120%;
+    left: -100%;
+    background: var(--white);
+  }
+  .mobile-panel li{
+    padding: 10px;
+    border-bottom: 1px dotted #D7D7D7;
+    transition: all 0.5s ease;
+    display: flex;
+    align-items: center;
+
+  }
+  .mobile-panel li i{
+    margin-right: 5px;
+  }
+  .mobile-panel li:hover {
+    background: #D7D7D7;
+    border-radius: 4px;
+  }
+  /* Apply color change when hovering over the <i> tag inside <li> and for .menu-link */
+.mobile-panel li:hover i
+{
+    color: var(--primary-color); /* Assuming --primary-color is defined in your CSS */
+}
+/* Apply color change when hovering over the <i> tag inside <li> and for .menu-link */
+.mobile-panel li:hover 
+.menu-link {
+    color: var(--primary-color); /* Assuming --primary-color is defined in your CSS */
+}
+
+
+/* mobile screen */
+@media (max-width: 974px) {
+  .category-container {
+    margin-top: 0px;
+    border-radius: 0px;
+}
+}
+@media (max-width: 768px) {
+   .login-menu , .location-menu{
+    display: none;
+}
+.mobileMenu-open{
+  margin-left: 20px;
+}
+.mobile-panel {
+ 
+  top: 150%;
+  left: -200%;
+ 
+}
+}
+@media (max-width: 568px) {
+  .banner-heading {
+    font-size: 25px;
+   
+    line-height: 34px;
+    letter-spacing: 1.89px;
+    
+}
+.banner-txt {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 25px;
+}
+}
+.sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  z-index: 4;
+  backdrop-filter: blur(6px);
+
+}
