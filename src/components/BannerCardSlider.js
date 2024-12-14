@@ -93,7 +93,11 @@ function ProductSlider() {
                 style={{ backgroundColor: item.backgroundColor }}
               >
                 <img src={item.image} alt={item.title} className="banner-image" />
-                
+                 <div className='img-text-box'>
+                 <h2 className='img-heading'>{item.title}</h2>
+                 <p>{item.description}</p>
+                 {/* <button className='img-button'>{item.buttonText}</button> */}
+                 </div>
               </div>
             </SwiperSlide>
           ))}

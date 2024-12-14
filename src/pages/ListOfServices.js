@@ -13,16 +13,16 @@ function ListOfServices() {
            <UserService/>
             <div className='page-wrapper'>
               <div className='container'>
-              <div className='user-page-container sticky-container'>
+              <div className='user-page-container sticky-container  different-width-grid'>
           <div className='user-page-item user-category'>
             <IndustryCategory/>
           </div>
            <div className='user-page-item service-cards'>
             <ServiceCard/>
            </div>
-        <div className='user-page-item user-overview'>
+        {/* <div className='user-page-item user-overview'>
           <Overview/>
-        </div>
+        </div> */}
           </div>
 
               </div>

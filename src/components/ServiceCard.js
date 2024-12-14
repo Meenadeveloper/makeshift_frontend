@@ -33,8 +33,8 @@ function ServiceCard() {
 
 
   return (
-    <div>
-      <div className='user-service-card-container'>
+    <div className='service-card-overflow'>
+      <div className='user-service-card-container grid-service-card'>
      
   <div class=" service-card">
  

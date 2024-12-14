@@ -23,8 +23,8 @@ function AdvBannerSlider() {
             slidesPerView={1} // Only one slide visible at a time
             loop={true} // Infinite loop of slides
             autoplay={{
-              delay: 3000, // Auto slide delay (in ms)
-              disableOnInteraction: false, // Auto slide continues even when user interacts
+              delay: 3000, 
+              disableOnInteraction: false, 
             }}
             pagination={{
               clickable: true, // Make dots clickable
@@ -33,8 +33,9 @@ function AdvBannerSlider() {
           >
             <SwiperSlide>
               <div className="adv-banner-box">
-                <div className="adv-banner-item">
+                <div className="adv-banner-item ">
                   <img src={AdvBanner} alt="Banner 1" />
+                 
                 </div>
               </div>
             </SwiperSlide>
