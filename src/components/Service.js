@@ -32,11 +32,21 @@ function Service() {
   const handlePopupToggle = () => {
     setIsPopupVisible(!isPopupVisible);
   };
+
+  const slidesData = [
+    { image: Industry, title: 'Industry & Factory' },
+    { image: Retail, title: 'Retail & Shop' },
+    { image: House, title: 'Home (Personal)' },
+    { image: Mentor, title: 'Mentor & Consultancies' },
+    { image: PDenquiry, title: 'P & D Enquiry' },
+    { image: PDenquiry, title: 'P & D Enquiry'}
+  ];
+  
   return (
     <>
      <section className='service-cont'>
        <div className='category-container'>
-  <Swiper
+       <Swiper
          ref={swiperRef} // Assigning the swiper instance to the ref
                   className="banner-swiper"
                   grabCursor={true}  // This enables the drag cursor
@@ -68,65 +78,21 @@ function Service() {
                     }
                   }}
         >
-         <SwiperSlide>
-           <div className='service-item'  onClick={handleServiceClick}>
-            <div className='service-img'>
-            <img src={Industry} />
+         {/* Map over dynamic slidesData */}
+      {slidesData.map((slide, index) => (
+        <SwiperSlide key={index}>
+          <div
+            className="service-item"
+            onClick={slide.isPopup ? handlePopupToggle : handleServiceClick}
+          >
+            <div className="service-img">
+              <img src={slide.image} alt={slide.title} />
             </div>
-              <p className='card-sub-head'>Industry & factory</p>
-           </div>
-           </SwiperSlide>
+            <p className="card-sub-head">{slide.title}</p>
+          </div>
+        </SwiperSlide>
+      ))}
 
-           <SwiperSlide>
-           {/* service item */}
-           <div className='service-item'  onClick={handleServiceClick}>
-            <div className='service-img'>
-            <img src={Retail} />
-            </div>
-              <p className='card-sub-head'>Retail & Shop</p>
-           </div>
-           </SwiperSlide>
-
-           <SwiperSlide>
-           {/* service item */}
-           <div className='service-item'  onClick={handleServiceClick}>
-            <div className='service-img'>
-            <img src={House} />
-            </div>
-              <p className='card-sub-head'>Home (Personal)</p>
-           </div>
-           </SwiperSlide>
-
-           <SwiperSlide>
-            {/* service item */}
-            <div className='service-item'  onClick={handleServiceClick}>
-            <div className='service-img'>
-            <img src={Mentor} />
-            </div>
-              <p className='card-sub-head'>Mendor & Consultancies</p>
-           </div>
-           </SwiperSlide>
-
-           
-           <SwiperSlide>
-            {/* service item */}
-            <div className='service-item'  onClick={handlePopupToggle}>
-            <div className='service-img'>
-            <img src={PDenquiry} />
-            </div>
-              <p className='card-sub-head' >P & D enquiry</p>
-           </div>
-           </SwiperSlide>
-
-           <SwiperSlide>
-            {/* service item */}
-            <div className='service-item'  onClick={handlePopupToggle}>
-            <div className='service-img'>
-            <img src={PDenquiry} />
-            </div>
-              <p className='card-sub-head' >P & D enquiry</p>
-           </div>
-           </SwiperSlide>
 
             {/* Custom Navigation Buttons */}
             <div
