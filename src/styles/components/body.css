@@ -1061,3 +1061,13 @@
     position: initial !important;
 
   }
+  .adv-slider-sec {
+    margin: 20px;
+    position: relative;
+    z-index: -1;
+}
+.banner-slider-sec, .product-slider-sec {
+  padding: 20px;
+  position: relative;
+  z-index: -1;
+}
