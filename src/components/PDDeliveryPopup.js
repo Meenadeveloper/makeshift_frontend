@@ -59,27 +59,27 @@ function PDDeliveryPopup() {
   };
 
   // Add event listener for mousedown when the component mounts
-  useEffect(() => {
-    document.addEventListener('mousedown', closePopup);
+  // useEffect(() => {
+  //   document.addEventListener('mousedown', closePopup);
 
-    // Clean up the event listener when the component unmounts
-    return () => {
-      document.removeEventListener('mousedown', closePopup);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener('mousedown', closePopup);
+  //   };
+  // }, []);
 
 
   return (
     <>
       {isFormVisible && (
-        <div className="pddelivery-overlay" onClick={closePopup}>
+        <div className="pddelivery-overlay" >
           <div
             className="emp-register-container pddelivery-box"
             style={{ padding: '0px'  }}
-            onClick={closePopup}
+           
           >
-            <div className="emp-register-box">
-              <div className="emp-reg-grid-box "    ref={formRef}  >
+            <div className="emp-register-box" style={{position:'relative'}}>
+            <button className='pdpopup-close' onClick={closePopup}> x</button>
+              <div className="emp-reg-grid-box " ref={formRef}  >
                 <div
                   className="emp-reg-grid-item emp-reg-grid-item-img"
                   style={{ display: 'flex', alignItems: 'center' }}

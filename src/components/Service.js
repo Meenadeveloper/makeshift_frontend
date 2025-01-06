@@ -21,7 +21,10 @@ function Service() {
 
   const handleServiceClick = (slideTitle) => {
     if (slideTitle === 'P & D Enquiry') {
+      setIsPopupVisible(false); // Reset popup visibility before showing it again
+    setTimeout(() => {
       setIsPopupVisible(true); // Show PDDeliveryPopup for 'P & D Enquiry'
+    }, 0); // Use a timeout to ensure the state change is triggered
     } else {
       setIsServicePopupOpen(true); // Open the regular ServicePopup for other slides
     }
@@ -38,7 +41,7 @@ function Service() {
     { image: House, title: 'Home (Personal)' },
     { image: Mentor, title: 'Mentor & Consultancies' },
     { image: PDenquiry, title: 'P & D Enquiry' },
-    { image: PDenquiry, title: 'P & D Enquiry' }
+    { image: House, title: 'Home (Personal)' }
   ];
   
   return (

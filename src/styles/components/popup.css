@@ -256,6 +256,22 @@
     height: 35px;
     padding-top: 15px ;
    }
+   .pdpopup-close{
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: rgb(63, 6, 6);
+    border-radius: 50%;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+   }
    
   @media screen and (max-width:567px){
     .note-modal-body .note-message p{
