@@ -1,17 +1,16 @@
-import PDDelivery from '../assets/images/deliver_banner.png';
-import { useState, useEffect, useRef } from 'react';
-function PDDeliveryPopup() {
+import PDDelivery from "../assets/images/deliver_banner.png";
+import { useState, useEffect, useRef } from "react";
+function PDDeliveryPopup({ isPopupVisible }) {
   const [formData, setFormData] = useState({
-    fromaddress: '',
-    toaddress: '',
-    dob: '',
-    mobile: '',
-    description: '',
+    fromaddress: "",
+    toaddress: "",
+    dob: "",
+    mobile: "",
+    description: "",
     video: null,
     image: null,
   });
 
-  const [isFormVisible, setIsFormVisible] = useState(true); // State to handle form visibility
   const formRef = useRef(null); // Reference to the form element
 
   const handleChange = (e) => {
@@ -31,7 +30,7 @@ function PDDeliveryPopup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form data:', formData);
+    console.log("Form data:", formData);
     // After submitting, hide the form
     setIsFormVisible(false);
   };
@@ -39,57 +38,82 @@ function PDDeliveryPopup() {
   const handleImageChange = (e) => {
     setFormData({
       ...formData,
-      image: e.target.files[0] ? e.target.files[0].name : '',
+      image: e.target.files[0] ? e.target.files[0].name : "",
     });
   };
 
   const handleVideoChange = (e) => {
     setFormData({
       ...formData,
-      video: e.target.files[0] ? e.target.files[0].name : '',
+      video: e.target.files[0] ? e.target.files[0].name : "",
     });
   };
 
-   // Function to close the popup when clicking outside the form
-   const closePopup = (e) => {
+  // Function to close the popup when clicking outside the form
+  const closePopup = (e) => {
     // If click is outside the form, close the popup
     if (formRef.current && !formRef.current.contains(e.target)) {
       setIsFormVisible(false);
     }
   };
 
-  // Add event listener for mousedown when the component mounts
-  // useEffect(() => {
-  //   document.addEventListener('mousedown', closePopup);
+  const [isFormVisible, setIsFormVisible] = useState(true); // State to handle form visibility
 
-  //   return () => {
-  //     document.removeEventListener('mousedown', closePopup);
-  //   };
-  // }, []);
+  useEffect(() => {
+    console.log("popup open", isFormVisible);
 
+    // Function to handle zIndex for all elements with the specified class
+    const handleZIndex = (className, zIndexValue) => {
+      const elements = document.querySelectorAll(`.${className}`);
+      elements.forEach((element) => {
+        element.style.zIndex = zIndexValue;
+      });
+    };
+
+    if (isFormVisible) {
+      document.body.style.overflow = "hidden";
+      handleZIndex("product-slider-sec", "-1");
+      handleZIndex("banner-slider-sec", "-1");
+    } else {
+      document.body.style.overflow = "auto";
+      handleZIndex("product-slider-sec", "3");
+      handleZIndex("banner-slider-sec", "3");
+    }
+
+    localStorage.setItem("isFormVisible", isFormVisible); // Corrected line
+  }, [isFormVisible]);
 
   return (
     <>
       {isFormVisible && (
-        <div className="pddelivery-overlay" >
+        <div className="pddelivery-overlay">
           <div
             className="emp-register-container pddelivery-box"
-            style={{ padding: '0px'  }}
-           
+            style={{ padding: "0px" }}
           >
-            <div className="emp-register-box" style={{position:'relative'}}>
-            <button className='pdpopup-close' onClick={closePopup}> x</button>
-              <div className="emp-reg-grid-box " ref={formRef}  >
+            <div className="emp-register-box" style={{ position: "relative" }}>
+              <button className="pdpopup-close" onClick={closePopup}>
+                x
+              </button>
+              <div className="emp-reg-grid-box " ref={formRef}>
                 <div
                   className="emp-reg-grid-item emp-reg-grid-item-img"
-                  style={{ display: 'flex', alignItems: 'center' }}
+                  style={{ display: "flex", alignItems: "center" }}
                 >
-                  <img src={PDDelivery} alt="Employee" className="emp-sticky-img" />
+                  <img
+                    src={PDDelivery}
+                    alt="Employee"
+                    className="emp-sticky-img"
+                  />
                 </div>
                 <div className="emp-reg-grid-item emp-reg-grid-item-form">
                   <div className="emp-reg-form-box">
                     <h2 className="emp-reg-form-head">Talk P&D</h2>
-                    <form className="emp-reg-form" onSubmit={handleSubmit} encType="multipart/form-data">
+                    <form
+                      className="emp-reg-form"
+                      onSubmit={handleSubmit}
+                      encType="multipart/form-data"
+                    >
                       <div className="emp-row">
                         <div className="emp-col">
                           <div className="emp-form-control">
@@ -152,15 +176,21 @@ function PDDeliveryPopup() {
                         </div>
                       </div>
 
-                      <div className="emp-col" style={{ width: '100%' }}>
+                      <div className="emp-col" style={{ width: "100%" }}>
                         <div className="emp-form-control">
-                          <label className="emp-label">Describe about Product</label>
+                          <label className="emp-label">
+                            Describe about Product
+                          </label>
                           <textarea
                             name="description"
                             className="emp-input-field"
                             placeholder="Describe the product here..."
                             rows="4"
-                            style={{ maxWidth:'100% ',width: '100%', height: '100%' }}
+                            style={{
+                              maxWidth: "100% ",
+                              width: "100%",
+                              height: "100%",
+                            }}
                             value={formData.description}
                             onChange={handleChange}
                           ></textarea>
@@ -174,9 +204,13 @@ function PDDeliveryPopup() {
                             <label>Upload Video</label>
                             <div
                               className="service-upload-file-wrapper"
-                              onClick={() => document.getElementById('upload-video').click()}
+                              onClick={() =>
+                                document.getElementById("upload-video").click()
+                              }
                             >
-                              <i className="material-icons service-upload-icon">video_library</i>
+                              <i className="material-icons service-upload-icon">
+                                video_library
+                              </i>
                               <input
                                 type="file"
                                 name="video"
@@ -185,7 +219,9 @@ function PDDeliveryPopup() {
                                 accept="video/*"
                                 onChange={handleVideoChange}
                               />
-                              <span className="service-upload-file-name">{formData.video || 'Upload video'}</span>
+                              <span className="service-upload-file-name">
+                                {formData.video || "Upload video"}
+                              </span>
                             </div>
                           </div>
                         </div>
@@ -194,9 +230,13 @@ function PDDeliveryPopup() {
                             <label>Upload Image</label>
                             <div
                               className="service-upload-file-wrapper"
-                              onClick={() => document.getElementById('upload-image').click()}
+                              onClick={() =>
+                                document.getElementById("upload-image").click()
+                              }
                             >
-                              <i className="material-icons service-upload-icon">image</i>
+                              <i className="material-icons service-upload-icon">
+                                image
+                              </i>
                               <input
                                 type="file"
                                 name="image"
@@ -205,7 +245,9 @@ function PDDeliveryPopup() {
                                 accept="image/*"
                                 onChange={handleImageChange}
                               />
-                              <span className="service-upload-file-name">{formData.image || 'Upload image'}</span>
+                              <span className="service-upload-file-name">
+                                {formData.image || "Upload image"}
+                              </span>
                             </div>
                           </div>
                         </div>

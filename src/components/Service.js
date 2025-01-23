@@ -1,30 +1,30 @@
-import Industry from '../assets/images/factory.png';
-import House from '../assets/images/house.png';
-import Retail from '../assets/images/retailshop.png';
-import Mentor from '../assets/images/mentor.png';
-import PDenquiry from '../assets/images/pd_enquiry.png';
-import React, { useState, useRef } from 'react';
-import ServicePopup from './ServicePopup';
-import PDDeliveryPopup from './PDDeliveryPopup';
+import Industry from "../assets/images/factory.png";
+import House from "../assets/images/house.png";
+import Retail from "../assets/images/retailshop.png";
+import Mentor from "../assets/images/mentor.png";
+import PDenquiry from "../assets/images/pd_enquiry.png";
+import React, { useState, useRef, useEffect } from "react";
+import ServicePopup from "./ServicePopup";
+import PDDeliveryPopup from "./PDDeliveryPopup";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 function Service() {
   const swiperRef = useRef(null); // Reference to Swiper instance
-  
+
   const [isServicePopupOpen, setIsServicePopupOpen] = useState(false);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   const handleServiceClick = (slideTitle) => {
-    if (slideTitle === 'P & D Enquiry') {
+    if (slideTitle === "P & D Enquiry") {
       setIsPopupVisible(false); // Reset popup visibility before showing it again
-    setTimeout(() => {
-      setIsPopupVisible(true); // Show PDDeliveryPopup for 'P & D Enquiry'
-    }, 0); // Use a timeout to ensure the state change is triggered
+      setTimeout(() => {
+        setIsPopupVisible(true); // Show PDDeliveryPopup for 'P & D Enquiry'
+      }, 0); // Use a timeout to ensure the state change is triggered
     } else {
       setIsServicePopupOpen(true); // Open the regular ServicePopup for other slides
     }
@@ -35,19 +35,41 @@ function Service() {
     setIsPopupVisible(false); // Close PDDeliveryPopup
   };
 
+  useEffect(() => {
+    console.log("servicepopup open", isServicePopupOpen);
+
+    // Function to handle zIndex for all elements with the specified class
+    const handleZIndex = (className, zIndexValue) => {
+      const elements = document.querySelectorAll(`.${className}`);
+      elements.forEach((element) => {
+        element.style.zIndex = zIndexValue;
+      });
+    };
+
+    if (isServicePopupOpen) {
+      document.body.style.overflow = "hidden";
+      handleZIndex("product-slider-sec", "-1");
+      handleZIndex("banner-slider-sec", "-1");
+    } else {
+      document.body.style.overflow = "auto";
+      handleZIndex("product-slider-sec", "3");
+      handleZIndex("banner-slider-sec", "3");
+    }
+  }, [isServicePopupOpen]);
+
   const slidesData = [
-    { image: Industry, title: 'Industry & Factory' },
-    { image: Retail, title: 'Retail & Shop' },
-    { image: House, title: 'Home (Personal)' },
-    { image: Mentor, title: 'Mentor & Consultancies' },
-    { image: PDenquiry, title: 'P & D Enquiry' },
-    { image: House, title: 'Home (Personal)' }
+    { image: Industry, title: "Industry & Factory" },
+    { image: Retail, title: "Retail & Shop" },
+    { image: House, title: "Home (Personal)" },
+    { image: Mentor, title: "Mentor & Consultancies" },
+    { image: PDenquiry, title: "P & D Enquiry" },
+    { image: House, title: "Home (Personal)" },
   ];
-  
+
   return (
     <>
-      <section className='service-cont'>
-        <div className='category-container'>
+      <section className="service-cont">
+        <div className="category-container">
           <Swiper
             ref={swiperRef}
             className="banner-swiper"
@@ -61,17 +83,17 @@ function Service() {
               disableOnInteraction: false,
             }}
             navigation={{
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
             }}
             pagination={{
               clickable: true,
-              el: '.swiper-pagination',
+              el: ".swiper-pagination",
             }}
             breakpoints={{
               568: { slidesPerView: 3 },
               768: { slidesPerView: 4 },
-              1024: { slidesPerView: 5 }
+              1024: { slidesPerView: 5 },
             }}
           >
             {slidesData.map((slide, index) => (
@@ -101,8 +123,15 @@ function Service() {
         </div>
 
         {/* Conditionally render the popups */}
-        {isPopupVisible && <PDDeliveryPopup handleClosePopup={handleClosePopup} />}
-        {isServicePopupOpen && <ServicePopup handleClosePopup={handleClosePopup} />}
+        {isPopupVisible && (
+          <PDDeliveryPopup
+            isPopupVisible={isPopupVisible}
+            handleClosePopup={handleClosePopup}
+          />
+        )}
+        {isServicePopupOpen && (
+          <ServicePopup handleClosePopup={handleClosePopup} />
+        )}
       </section>
     </>
   );
